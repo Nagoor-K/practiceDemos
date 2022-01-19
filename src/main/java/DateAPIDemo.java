@@ -1,6 +1,4 @@
 import java.time.*;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class DateAPIDemo {
 
@@ -11,7 +9,7 @@ public class DateAPIDemo {
 	  System.out.println("Today date is "+d);
 	  
 	  //to find current time
-	  LocalTime t = LocalTime.now();
+	  LocalTime t = LocalTime.now();	                        
 	  System.out.println("the current time is "+t);
 	  
 	  //to print in a particular format
