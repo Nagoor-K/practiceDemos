@@ -1,8 +1,5 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'java-library'
-apply plugin: 'groovy'
-apply plugin: 'scala'
 
 repositories{
 	jcenter()
