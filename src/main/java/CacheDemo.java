@@ -1,3 +1,6 @@
+import javax.persistence.EntityManager;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -14,16 +17,11 @@ public class CacheDemo {
 	  Session session=sf.openSession();
 	  Transaction tx=session.beginTransaction();
 	  
-	  house=session.get(House.class, 89);
-	  tx.commit();
+	  Query q1=session.createQuery("from House where hid=89");
+	  house=(House) q1.uniqueResult();
 	  System.out.println(house);
+	  tx.commit();
+	  
 	  session.close();
-	  
-	  Session session2=sf.openSession();
-	  Transaction tx1=session2.beginTransaction();
-	  
-	  House house1=session2.get(House.class, 89);
-	  tx1.commit();
-	  System.out.println(house1);
   }
 }
