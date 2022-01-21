@@ -11,7 +11,7 @@ public class Student {
 	private int sid;
 	private String sname;
 	private int mark;
-	@OneToMany
+	@OneToMany(mappedBy ="student")
 	private List<Laptop> laptops=new ArrayList<Laptop>();
 	
   public int getSid() {

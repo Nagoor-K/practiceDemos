@@ -17,6 +17,7 @@ public class MappingRelatonoaPractice {
 	  Laptop laptop=new Laptop();
 	  laptop.setLid(101);
 	  laptop.setLname("HP");
+	  laptop.setStudent(student);
 	  
 	  student.getLaptops().add(laptop);
 	  
