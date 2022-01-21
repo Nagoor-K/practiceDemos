@@ -17,7 +17,8 @@ public class MappingRelatonoaPractice {
 	  Laptop laptop=new Laptop();
 	  laptop.setLid(101);
 	  laptop.setLname("HP");
-	  student.setLaptop(laptop);
+	  
+	  student.getLaptops().add(laptop);
 	  
 	  Configuration con=new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(Laptop.class);
 	  SessionFactory sf=con.buildSessionFactory();
