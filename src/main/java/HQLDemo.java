@@ -22,12 +22,9 @@ public class HQLDemo {
 	  
 	  Transaction tx =session.beginTransaction();
 	  
-	  Query q=session.createQuery("from Teacher");
-	  List<Teacher> t =q.list();
-	  for(Teacher teacher:t) {
-		  System.out.println(teacher);
-	  }
-	  
+	  Query q=session.createQuery("select avg(salary) from Teacher");
+	  Double t=(Double) q.uniqueResult();
+	  System.out.print(t);
 	  
 	  tx.commit();
 	  
