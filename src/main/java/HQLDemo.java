@@ -1,6 +1,8 @@
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -11,7 +13,6 @@ public class HQLDemo {
   public static void main(String[] args) {
     // TODO Auto-generated method stub
 	  
-	  Scanner scan=new Scanner(System.in);
 	  
 	  Configuration con=new Configuration().configure().addAnnotatedClass(Teacher.class);
 	  
@@ -21,16 +22,12 @@ public class HQLDemo {
 	  
 	  Transaction tx =session.beginTransaction();
 	  
-	  Random r=new Random();
-	  
-	  
-	  for(int i=1;i<=50;i++) {
-		  Teacher t=new Teacher();
-		  t.setTid(i);
-		  t.setTname("Name : "+i);
-		  t.setSalary(r.nextInt(100000));
-		  session.save(t);
+	  Query q=session.createQuery("from Teacher");
+	  List<Teacher> t =q.list();
+	  for(Teacher teacher:t) {
+		  System.out.println(teacher);
 	  }
+	  
 	  
 	  tx.commit();
 	  
