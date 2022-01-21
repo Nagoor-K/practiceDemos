@@ -3,6 +3,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -11,7 +12,7 @@ public class Student {
 	private int sid;
 	private String sname;
 	private int mark;
-	@OneToMany(mappedBy ="student")
+	@ManyToMany
 	private List<Laptop> laptops=new ArrayList<Laptop>();
 	
   public int getSid() {
