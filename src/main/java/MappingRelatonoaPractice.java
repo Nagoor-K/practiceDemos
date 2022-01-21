@@ -17,11 +17,10 @@ public class MappingRelatonoaPractice {
 	  Session session=sf.openSession();
 	  Transaction tx=session.beginTransaction();
 	  
-	  student=session.get(Student.class,161074);
-	  laptop=session.get(Laptop.class,101);
-	  tx.commit();
-	  System.out.println(student);
+	  student=session.get(Student.class, 161074);
 	  
-	  System.out.println(laptop);
+	  tx.commit();
+	  
+	  System.out.println(student);
   }
 }

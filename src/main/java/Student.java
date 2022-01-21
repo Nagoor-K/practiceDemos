@@ -1,21 +1,26 @@
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 @Entity
 public class Student {
 	@Id
 	private int sid;
 	private String sname;
 	private int mark;
-	@OneToOne
-	private Laptop laptop;
+	@OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
+	private List<Laptop> laptop=new ArrayList<Laptop>();
 	
 	
-  public Laptop getLaptop() {
+  
+  
+public List<Laptop> getLaptop() {
   return laptop;}
-  public void setLaptop(Laptop laptop) {
+  public void setLaptop(List<Laptop> laptop) {
   this.laptop = laptop;}
   
 public int getSid() {
@@ -32,7 +37,7 @@ public int getSid() {
   return mark;}
   public void setMark(int mark) {
   this.mark = mark;}
-@Override public String toString(){return "Student [sid=" + sid + ", sname=" + sname + ", mark=" + mark + ", laptop=" + laptop + "]";}  
+@Override public String toString(){return "Student [sid=" + sid + ", sname=" + sname + ", mark=" + mark + ", laptop=" + laptop + "]";}
   
 	
 	
