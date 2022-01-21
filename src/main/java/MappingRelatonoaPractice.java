@@ -9,27 +9,19 @@ public class MappingRelatonoaPractice {
     // TODO Auto-generated method stub
 	  
 	  Student student=new Student();
-	  student.setSid(161074);
-	  student.setSname("Patan Nagoor Khan");
-	  student.setMark(90);
-	  
 	  
 	  Laptop laptop=new Laptop();
-	  laptop.setLid(101);
-	  laptop.setLname("HP");
-	  laptop.getStudent().add(student);
-	  
-	  student.getLaptops().add(laptop);
 	  
 	  Configuration con=new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(Laptop.class);
 	  SessionFactory sf=con.buildSessionFactory();
 	  Session session=sf.openSession();
 	  Transaction tx=session.beginTransaction();
 	  
-	  session.save(student);
-	  session.save(laptop);
-	  
+	  student=session.get(Student.class,161074);
+	  laptop=session.get(Laptop.class,101);
 	  tx.commit();
+	  System.out.println(student);
 	  
+	  System.out.println(laptop);
   }
 }

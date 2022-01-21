@@ -1,10 +1,7 @@
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Student {
@@ -12,10 +9,16 @@ public class Student {
 	private int sid;
 	private String sname;
 	private int mark;
-	@ManyToMany
-	private List<Laptop> laptops=new ArrayList<Laptop>();
+	@OneToOne
+	private Laptop laptop;
 	
-  public int getSid() {
+	
+  public Laptop getLaptop() {
+  return laptop;}
+  public void setLaptop(Laptop laptop) {
+  this.laptop = laptop;}
+  
+public int getSid() {
   return sid;}
   public void setSid(int sid) {
   this.sid = sid;}
@@ -29,13 +32,7 @@ public class Student {
   return mark;}
   public void setMark(int mark) {
   this.mark = mark;}
-  
-	
-  public List<Laptop> getLaptops() {
-  return laptops;}
-  public void setLaptops(List<Laptop> laptops) {
-  this.laptops = laptops;}
-  
+@Override public String toString(){return "Student [sid=" + sid + ", sname=" + sname + ", mark=" + mark + ", laptop=" + laptop + "]";}  
   
 	
 	
