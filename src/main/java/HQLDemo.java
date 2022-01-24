@@ -23,21 +23,17 @@ public class HQLDemo {
 	  Transaction tx =session.beginTransaction();
 	  
 	  Teacher t=new Teacher();
-	  t.setTid(106);
-	  t.setTname("Vinod");
-	  t.setSalary(90500);
-	  session.save(t);
-	  
-	  t.setSalary(1500);
+	  t=session.get(Teacher.class, 101);
+	  System.out.println(t);
 	  
 	  
-	  session.remove(t);
+	  Teacher t1=session.load(Teacher.class,102);
+	  System.out.println(t1);
+	  
 	  
 	  tx.commit();
-	  session.detach(t);//detach stage
 	  
 	  
-	  t.setSalary(1200);
 	  session.close();
   }
 }
