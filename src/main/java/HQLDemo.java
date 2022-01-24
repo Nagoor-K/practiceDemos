@@ -22,15 +22,22 @@ public class HQLDemo {
 	  
 	  Transaction tx =session.beginTransaction();
 	  
-	  Query q=session.createQuery("select distinct salary from Teacher");
-	  List<Teacher> teachers=q.list();
-	  for(Teacher t:teachers) {
-		  System.out.println(t);
-	  }
-	  System.out.print(t);
+	  Teacher t=new Teacher();
+	  t.setTid(106);
+	  t.setTname("Vinod");
+	  t.setSalary(90500);
+	  session.save(t);
+	  
+	  t.setSalary(1500);
+	  
+	  
+	  session.remove(t);
 	  
 	  tx.commit();
+	  session.detach(t);//detach stage
 	  
+	  
+	  t.setSalary(1200);
 	  session.close();
   }
 }
